@@ -2,13 +2,13 @@ import {Text, View} from 'react-native';
 
 import React from 'react';
 
-const Profile = () => {
+const Home = () => {
   return (
     <View>
-      <Text>Complete your profile!</Text>
+      <Text>Notifications</Text>
       {/* name, age, gender */}
     </View>
   );
 };
 
-export default Profile;
+export default Home;

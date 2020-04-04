@@ -1,27 +1,31 @@
-import {LoginButton} from 'react-native-fbsdk';
-import {NavigationContainer} from '@react-navigation/native';
+import {AccessToken, LoginButton} from 'react-native-fbsdk';
+import {AsyncStorage, View} from 'react-native';
+
 import React from 'react';
-import {View} from 'react-native';
-import {createStackNavigator} from '@react-navigation/stack';
 
 const FBLoginButton = ({navigation}) => {
   return (
     <View>
       <LoginButton
         publishPermissions={['email']}
-        onLoginFinished={(error, result) => {
-          console.log('error', error);
-          console.log('result', result);
+        onLoginFinished={async (error, result) => {
           if (error) {
             alert('Login failed with error: ' + error.message);
           } else if (result.isCancelled) {
             alert('Login was cancelled');
-          } else {
-            alert(
-              'Login was successful with permissions: ' +
-                result.grantedPermissions,
-            );
-            navigation.navigate('Info', {name: 'Info'});
+          } else if (await AsyncStorage.getItem('userToken')) {
+            navigation.navigate('Home', {name: 'Home'});
+          } else if (result.grantedPermissions && !result.isCancelled) {
+            const data = await AccessToken.getCurrentAccessToken();
+
+            if (data) {
+              await AsyncStorage.setItem('authToken', data.accessToken);
+              alert(
+                'Login was successful with permissions: ' +
+                  result.grantedPermissions,
+              );
+              navigation.navigate('Info', {name: 'Info'});
+            }
           }
         }}
         onLogoutFinished={() => alert('User logged out')}
