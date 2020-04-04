@@ -7,55 +7,76 @@
  */
 
 import {
-  Colors,
-  DebugInstructions,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import {
+  Image,
   SafeAreaView,
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import FBLoginButton from './components/FBLoginButton';
 import React from 'react';
 
 const Login = ({navigation}) => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
+    <View style={styles.container}>
       <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
+        <ScrollView contentInsetAdjustmentBehavior="automatic">
           {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )}
-          <View style={styles.body}>
-            <FBLoginButton navigation={navigation} />
+          <View>
+            <Image
+              source={require('./images/logo-tim.png')}
+              style={styles.image}
+            />
+            <View style={styles.textContainer}>
+              <Text style={styles.mainText}>
+                ការពារខ្លួនអ្នកនិង ក្រុមគ្រួសាររបស់អ្នក។
+              </Text>
+
+              <Text style={styles.mainText}>អ្នកនិងឈ្នះរង្វាន់</Text>
+            </View>
+            <View style={styles.facebookButton}>
+              <FBLoginButton navigation={navigation} />
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    backgroundColor: '#203878',
+    justifyContent: 'center',
+    alignItems: 'center',
+    // backgroundImage: url('images/radial_bg.png')
+    // backgroundRepeat: 'no-repeat',
+    /* Safari 4-5, Chrome 1-9 */
+    /* Can't specify a percentage size? Laaaaaame. */
+    // background:
+    //   '-webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727))',
   },
+  image: {margin: 50},
   engine: {
     position: 'absolute',
     right: 0,
   },
-  body: {
-    backgroundColor: Colors.white,
+  mainText: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#fff',
+    fontSize: 16,
+    flexWrap: 'wrap',
+  },
+  textContainer: {
+    marginBottom: 20,
   },
   sectionContainer: {
     marginTop: 32,

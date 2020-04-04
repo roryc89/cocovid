@@ -1,5 +1,5 @@
 import {AccessToken, LoginButton} from 'react-native-fbsdk';
-import {AsyncStorage, View} from 'react-native';
+import {AsyncStorage, StyleSheet, View} from 'react-native';
 
 import React from 'react';
 
@@ -13,6 +13,13 @@ class FBLoginButton extends React.Component {
     return (
       <View>
         <LoginButton
+          style={{
+            width: 230,
+            height: 48,
+            justifyContent: 'center',
+            alignSelf: 'center',
+            marginTop: 10,
+          }}
           publishPermissions={['email']}
           onLoginFinished={async (error, result) => {
             if (error) {

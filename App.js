@@ -18,25 +18,38 @@ export default class App extends React.Component {
   render() {
     return (
       <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerStyle: {
-              backgroundColor: '#9000FF',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}>
+        <Stack.Navigator>
           <Stack.Screen
             name="Login"
             component={LoginScreen}
-            options={{title: 'Cocovid'}}
+            options={{
+              title: 'ទីងមោង',
+              headerStyle: {
+                backgroundColor: '#203878',
+                shadowColor: 'transparent',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+                fontSize: 40,
+              },
+            }}
           />
           <Stack.Screen
             name="Info"
             component={InfoScreen}
-            options={{title: 'Terms & Conditions'}}
+            options={{
+              title: 'តើទីងមោងជាអ្វី?',
+              headerStyle: {
+                backgroundColor: '#203878',
+                shadowColor: 'transparent',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+                fontSize: 40,
+              },
+            }}
           />
           <Stack.Screen
             name="Profile"

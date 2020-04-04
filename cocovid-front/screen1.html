@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <link href='http://fonts.googleapis.com/css?family=Khmer' rel='stylesheet' type='text/css'>
+  <style>
+    .center-div  { margin: 0 auto; width: 80%;}
+    .radial-center {
+      /* fallback */
+      background-color: #2F2727;
+      background-image: url(images/radial_bg.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      /* Safari 4-5, Chrome 1-9 */
+      /* Can't specify a percentage size? Laaaaaame. */
+      background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727));
+      /* Safari 5.1+, Chrome 10+ */
+      background: -webkit-radial-gradient(circle, #1a82f7, #2F2727);
+      /* Firefox 3.6+ */
+      background: -moz-radial-gradient(circle, #1a82f7, #2F2727);
+      /* IE 10 */
+      background: -ms-radial-gradient(circle, #1a82f7, #2F2727);
+      /* Opera couldn't do radial gradients, then at some point they started supporting the -webkit- syntax, how it kinda does but it's kinda broken (doesn't do sizing) */
+    }
+    .title-screen {font-size: 12em; color: #fff;text-shadow: 3px 3px #000; text-align: center;}
+    .logo-splash {width: 70%; margin: 0 15%;}
+    .khmer-p {font-weight: bold;color: #fff; font-size: 4em;text-shadow: 3px 3px #000; text-align: center;}
+    .login-facebook {width: 60%; margin: 0 20%;}
+  </style>
+
+  <body class="radial-center">
+    <div class="center-div">
+      <h1 class="title-screen">ទីងមោង</h1>
+      <img src="images/logo-tim.png" class="logo-splash" />
+      <p class="khmer-p">ការពារខ្លួនអ្នកនិង<br />ក្រុមគ្រួសាររបស់អ្នក។ <br /> អ្នកនិងឈ្នះរង្វាន់</p>
+      <a href="#calltologin"><img src="images/login-facebook.png" class="login-facebook"  /></a>
+    </div>
+  </body>
+</html>

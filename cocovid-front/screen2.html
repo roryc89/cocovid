@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <link href='http://fonts.googleapis.com/css?family=Khmer' rel='stylesheet' type='text/css'>
+  <style>
+    .center-div
+    {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .radial-center {
+      /* fallback */
+      background-color: #2F2727;
+      background-image: url(images/radial_bg.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      /* Safari 4-5, Chrome 1-9 */
+      /* Can't specify a percentage size? Laaaaaame. */
+      background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727));
+
+      /* Safari 5.1+, Chrome 10+ */
+      background: -webkit-radial-gradient(circle, #1a82f7, #2F2727);
+
+      /* Firefox 3.6+ */
+      background: -moz-radial-gradient(circle, #1a82f7, #2F2727);
+
+      /* IE 10 */
+      background: -ms-radial-gradient(circle, #1a82f7, #2F2727);
+
+      /* Opera couldn't do radial gradients, then at some point they started supporting the -webkit- syntax, how it kinda does but it's kinda broken (doesn't do sizing) */
+    }
+    .khmertext, .khmertext label {font-weight: bold;color: #fff; font-size: 2em;}
+    .khmertext label { font-size: 1em;}
+    .khmertext input { font-size: 19px;  }
+    .title-screen2 {font-size: 80px; color: #fff;text-shadow: 3px 3px #000;}
+    .button { height: 50px; width: 50px;}
+    .form-submit-button {margin: 50px 0px 20px 0px; background: #0066A2;color: white;border-style: outset;border-color: #0066A2;height: 100px;width: 200px;font-size:50px !important;text-shadow:none;}
+  </style>
+  <body class="radial-center">
+    <div class="center-div">
+      <h1 class="title-screen2"> តើទីងមោងជាអ្វី?</h1>
+      <p class="khmertext"> ទីងមោងគឺជាផ្នែកបុរាណមួយនៃទំនៀមទម្លាប់របស់ខ្មែរ។ </p>
+      <p class="khmertext"> ទីងមោង​ត្រូវបានគេគិតថា គឺជារូប
+      ​ដើម្បី​បញ្ចៀស​​នូវ​ឧបទ្រព​ចង្រៃ​គ្រប់​ប្រភេទនិង រារាំងវិញ្ញាណអាក្រក់។ </p>
+      <p class="khmertext"> ឥឡូវយើងស្ថិតក្នុងស្ថានភាពមួយដែលទាមទារឱ្យយើងរួបរួមគ្នាប្រុងប្រយ័ត្ន។</p>
+      <p class="khmertext">គោលដៅនៃកម្មវិធីនេះគឺដើម្បីចែករំលែកព័ត៌មានអំពីសុវត្ថិភាព
+      និងបង្កើនការយល់ដឹងជាសកលទាក់ទងនឹងការប្រយុទ្ធប្រឆាំងនឹងជម្ងឺ Covid-19 ។</p>
+      <p class="khmertext"> ប៉ុន្តែទីងមោងត្រូវបានរចនាឡើងជាហ្គេមដែលអ្នកនឹងទទួលបានពិន្ទុ
+      ដើម្បីបង្កើនកម្រិតនៃការការពារ ទីងមោង របស់អ្នក។
+      </p>
+      <p class="khmertext"> ជួយខ្លួនអ្នកដោយការការពារអ្នកដទៃ។</p>
+      <p class="khmertext"> អរគុណ </p>
+      <form action="/action_page.php" class="khmertext">
+        <input type="checkbox" id="terms" name="terms" value="terms-accepted" class="button" >
+        <label for="vehicle1">ទទួលយកល័ក្ខខ័ណ្ឌ</label><br>
+        <input type="submit" value="ផ្ញើរ" class="form-submit-button">
+      </form>
+    </div>
+  </body>
+</html>
