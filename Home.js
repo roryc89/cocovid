@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {showModal: false, temperature: '0'};
+    this.state = {showModal: false, temperature: '0', points: 10};
   }
 
   onChangeText(text) {
@@ -62,7 +62,8 @@ class Home extends React.Component {
   }
 
   closeModal() {
-    this.setState({showModal: false});
+    console.log('closing modal');
+    this.setState({showModal: false, points: this.state.points + 10});
     alert('+ 10 points');
   }
 
@@ -100,20 +101,20 @@ class Home extends React.Component {
 
               <TouchableHighlight
                 onPress={() => {
-                  this.setModalVisible(!this.state.showModal);
+                  this.closeModal();
                 }}>
-                <Text>Hide Modal</Text>
+                <Text>OK</Text>
               </TouchableHighlight>
             </View>
           </View>
         </Modal>
         <View style={styles.inputWrapper}>
-          <Text>Your Score: 5</Text>
+          <Text>Your Score: {this.state.points}</Text>
           <Text>Share it with Friends! </Text>
         </View>
 
         <View style={styles.inputWrapper}>
-          <Text>Last Temperature recoded: {this.state.temperature}</Text>
+          <Text>Last Temperature recorded: {this.state.temperature}</Text>
         </View>
 
         <Text>Alerts:</Text>
