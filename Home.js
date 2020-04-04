@@ -1,6 +1,5 @@
 import {
   Alert,
-  Modal,
   StyleSheet,
   Text,
   TextInput,
@@ -8,6 +7,7 @@ import {
   View,
 } from 'react-native';
 
+import Modal from 'react-native-modal';
 import React from 'react';
 
 // prompt temperature -> yes or not, register your temperature
@@ -23,27 +23,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAF9F9',
     marginBottom: 10,
     padding: 10,
-  },
-  centeredView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 22,
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: 'red',
-    borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
   },
 });
 
@@ -83,18 +62,30 @@ class Home extends React.Component {
   render() {
     return (
       <View>
-        <Modal
-          animationType={'slide'}
-          transparent={false}
-          visible={this.state.showModal}
-          onRequestClose={() => {
-            alert('Modal has been closed.');
-          }}>
-          <View style={{marginTop: 22}}>
-            <View>
+        <View>
+          <Modal
+            isVisible={this.state.showModal}
+            onRequestClose={() => {
+              alert('Modal has been closed.');
+            }}>
+            <View
+              style={{
+                backgroundColor: 'white',
+                borderRadius: 2,
+                borderColor: 'gray',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '10%',
+                fontSize: 12,
+              }}>
               <Text>Please insert your temperature:</Text>
               <TextInput
-                style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                style={{
+                  height: 40,
+                  width: 60,
+                  borderColor: 'gray',
+                  borderWidth: 1,
+                }}
                 onChangeText={text => this.onChangeText(text)}
                 value={this.state.temperature}
               />
@@ -106,8 +97,8 @@ class Home extends React.Component {
                 <Text>OK</Text>
               </TouchableHighlight>
             </View>
-          </View>
-        </Modal>
+          </Modal>
+        </View>
         <View style={styles.inputWrapper}>
           <Text>Your Score: {this.state.points}</Text>
           <Text>Share it with Friends! </Text>
