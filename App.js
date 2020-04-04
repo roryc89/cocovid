@@ -23,6 +23,7 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import FBLoginButton from './components/FBLoginButton';
 
 const App: () => React$Node = () => {
   return (
@@ -39,7 +40,7 @@ const App: () => React$Node = () => {
             </View>
           )}
           <View style={styles.body}>
-            <Text>Welcome to cocovid</Text>
+            <FBLoginButton />
           </View>
         </ScrollView>
       </SafeAreaView>
