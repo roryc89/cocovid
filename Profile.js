@@ -1,6 +1,5 @@
 import {
-  Button,
-  CheckBox,
+  Image,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -8,15 +7,19 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import RadioGroup, {Radio} from 'react-native-radio-input';
+import RadioForm, {
+  RadioButton,
+  RadioButtonInput,
+  RadioButtonLabel,
+} from 'react-native-simple-radio-button';
 import {
   faCheckSquare,
   faFemale,
   faMale,
 } from '@fortawesome/free-solid-svg-icons';
 
+import {Button} from 'react-native-elements';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {Input} from 'react-native-elements';
 import React from 'react';
 import {fab} from '@fortawesome/free-brands-svg-icons';
 import {library} from '@fortawesome/fontawesome-svg-core';
@@ -25,10 +28,29 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      radioButton: 'value1',
+      selectedGender: null,
     };
   }
+
+  getChecked(value) {
+    console.log(value);
+  }
+
+  setGender(gender) {
+    this.setState({selectedGender: gender});
+  }
+
   render() {
+    const that = this;
+    const radio_props = [
+      {label: '18-30', value: 18},
+      {label: '31-45', value: 31},
+      {label: '45-60', value: 45},
+      {label: '60+', value: 60},
+    ];
+
+    console.log('that.state', that.state);
+
     return (
       <View style={styles.container}>
         <SafeAreaView>
@@ -38,57 +60,75 @@ class Profile extends React.Component {
                 <Text style={styles.footer}>Engine: Hermes</Text>
               </View>
             )}
-            <Text>Age: </Text>
-            <View>
-              <RadioGroup>
-                <Radio iconName={'lens'} label={'18-30'} value={'A'} />
-                <Radio iconName={'lens'} label={'31-45'} value={'B'} />
-                <Radio iconName={'lens'} label={'46-60'} value={1} />
-                <Radio label={'60+'} value={'Yes'} />
-              </RadioGroup>
+            <View style={styles.ageContainer}>
+              <Text style={styles.ageTitle}>Age: </Text>
+              <View>
+                <RadioForm
+                  selectedLabelColor={'white'}
+                  labelColor={'white'}
+                  radio_props={radio_props}
+                  initial={0}
+                  onPress={value => {
+                    this.setState({value: value});
+                  }}
+                />
+              </View>
             </View>
-
-            <Text>Gender</Text>
             <View style={styles.genderContainer}>
-              <TouchableOpacity
-                style={{
-                  borderWidth: 1,
-                  borderColor: 'rgba(0,0,0,0.2)',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: 100,
-                  height: 100,
-                  backgroundColor: '#fff',
-                  borderRadius: 50,
-                  margin: 10,
-                }}>
-                <FontAwesomeIcon
-                  icon={faMale}
-                  style={{color: 'blue', padding: 30}}
-                />
-              </TouchableOpacity>
+              <Text style={styles.genderText}>Gender:</Text>
+              <View style={styles.genderButtons}>
+                <TouchableOpacity
+                  onPress={() => this.setGender('male')}
+                  style={{
+                    borderWidth: 1,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 100,
+                    height: 100,
+                    borderRadius: 50,
+                    margin: 15,
+                    backgroundColor:
+                      that.state.selectedGender === 'male' ? '#fff' : '#aaa',
+                  }}>
+                  <FontAwesomeIcon
+                    icon={faMale}
+                    style={{color: 'blue', padding: 30}}
+                  />
+                </TouchableOpacity>
 
-              <TouchableOpacity
-                style={{
-                  borderWidth: 1,
-                  borderColor: 'rgba(0,0,0,0.2)',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: 100,
-                  height: 100,
-                  backgroundColor: '#fff',
-                  borderRadius: 50,
-                  margin: 10,
-                }}>
-                <FontAwesomeIcon
-                  icon={faFemale}
-                  style={{color: 'blue', padding: 30}}
-                />
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => this.setGender('female')}
+                  style={{
+                    borderWidth: 1,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 100,
+                    height: 100,
+                    backgroundColor: '#fff',
+                    borderRadius: 50,
+                    margin: 15,
+                    backgroundColor:
+                      that.state.selectedGender === 'female' ? '#fff' : '#aaa',
+                  }}>
+                  <FontAwesomeIcon
+                    icon={faFemale}
+                    style={{
+                      color: 'blue',
+                      padding: 30,
+                    }}
+                  />
+                </TouchableOpacity>
+              </View>
             </View>
-            <Input label="Address" onChangeText={() => {}} />
-
+            <View style={styles.map}>
+              <Text style={styles.mapTitle}>Address:</Text>
+              <Image
+                style={styles.mapImage}
+                source={require('./images/map.png')}
+              />
+            </View>
             <Button
+              style={styles.button}
               title="Save"
               onPress={() =>
                 this.props.navigation.navigate('Home', {name: 'Home'})
@@ -105,25 +145,52 @@ export default Profile;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#203878',
-    // justifyContent: 'center',
     alignItems: 'center',
-    // backgroundImage: url('images/radial_bg.png')
-    // backgroundRepeat: 'no-repeat',
-    /* Safari 4-5, Chrome 1-9 */
-    /* Can't specify a percentage size? Laaaaaame. */
-    // background:
-    //   '-webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727))',
   },
+
   genderContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    margin: 10,
+  },
+  genderButtons: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
+  },
+  genderText: {
+    color: 'white',
+    fontSize: 20,
   },
   icon: {
     width: 80,
     height: 80,
     borderRadius: 160,
     backgroundColor: '#000',
+  },
+  ageContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+
+    margin: 20,
+  },
+  ageTitle: {
+    color: 'white',
+    margin: 10,
+    fontSize: 20,
+  },
+
+  mapTitle: {
+    color: 'white',
+    margin: 10,
+    fontSize: 20,
+  },
+  mapImage: {
+    width: 300,
+    height: 200,
+  },
+  button: {
+    marginTop: 20,
   },
 });

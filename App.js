@@ -91,7 +91,7 @@ export default class App extends React.Component {
               headerTintColor: '#fff',
               headerTitleStyle: {
                 fontWeight: 'bold',
-                fontSize: 40,
+                fontSize: 30,
               },
             }}
           />
