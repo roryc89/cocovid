@@ -1,16 +1,33 @@
 import {
   Button,
+  CheckBox,
   SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
-import {Divider, Input} from 'react-native-elements';
+import RadioGroup, {Radio} from 'react-native-radio-input';
+import {
+  faCheckSquare,
+  faFemale,
+  faMale,
+} from '@fortawesome/free-solid-svg-icons';
 
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {Input} from 'react-native-elements';
 import React from 'react';
+import {fab} from '@fortawesome/free-brands-svg-icons';
+import {library} from '@fortawesome/fontawesome-svg-core';
 
 class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      radioButton: 'value1',
+    };
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -21,11 +38,54 @@ class Profile extends React.Component {
                 <Text style={styles.footer}>Engine: Hermes</Text>
               </View>
             )}
-            <Text>Complete your profile!</Text>
-            <Text>Your inital score: 10</Text>
-            <Divider />
-            <Input label="Name" onChangeText={() => {}} />
-            <Input label="Age" onChangeText={() => {}} />
+            <Text>Age: </Text>
+            <View>
+              <RadioGroup>
+                <Radio iconName={'lens'} label={'18-30'} value={'A'} />
+                <Radio iconName={'lens'} label={'31-45'} value={'B'} />
+                <Radio iconName={'lens'} label={'46-60'} value={1} />
+                <Radio label={'60+'} value={'Yes'} />
+              </RadioGroup>
+            </View>
+
+            <Text>Gender</Text>
+            <View style={styles.genderContainer}>
+              <TouchableOpacity
+                style={{
+                  borderWidth: 1,
+                  borderColor: 'rgba(0,0,0,0.2)',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: 100,
+                  height: 100,
+                  backgroundColor: '#fff',
+                  borderRadius: 50,
+                  margin: 10,
+                }}>
+                <FontAwesomeIcon
+                  icon={faMale}
+                  style={{color: 'blue', padding: 30}}
+                />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={{
+                  borderWidth: 1,
+                  borderColor: 'rgba(0,0,0,0.2)',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: 100,
+                  height: 100,
+                  backgroundColor: '#fff',
+                  borderRadius: 50,
+                  margin: 10,
+                }}>
+                <FontAwesomeIcon
+                  icon={faFemale}
+                  style={{color: 'blue', padding: 30}}
+                />
+              </TouchableOpacity>
+            </View>
             <Input label="Address" onChangeText={() => {}} />
 
             <Button
@@ -53,5 +113,17 @@ const styles = StyleSheet.create({
     /* Can't specify a percentage size? Laaaaaame. */
     // background:
     //   '-webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727))',
+  },
+  genderContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  },
+  icon: {
+    width: 80,
+    height: 80,
+    borderRadius: 160,
+    backgroundColor: '#000',
   },
 });

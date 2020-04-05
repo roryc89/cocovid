@@ -25,8 +25,9 @@ const Info = ({navigation}) => {
               រារាំងវិញ្ញាណអាក្រក់។
             </Text>
             <Text style={styles.khmerText}>
-              ឥឡូវយើងស្ថិតក្នុងស្ថានភាពមួយដែលទាមទារឱ្យយើងរួបរួមគ្នាប្រុងប្រយ័ត្ន។
+              ឥឡូវយើងស្ថិតក្នុងស្ថានភាពមួយដែលទាមទារឱ្យយើង
             </Text>
+            <Text style={styles.khmerText}>រួបរួមគ្នាប្រុងប្រយ័ត្ន។</Text>
             <Text style={styles.khmerText}>
               គោលដៅនៃកម្មវិធីនេះគឺដើម្បីចែករំលែកព័ត៌មានអំពីសុវត្ថិភាព
               និងបង្កើនការយល់ដឹងជាសកលទាក់ទងនឹងការប្រយុទ្ធប្រឆាំងនឹងជម្ងឺ
@@ -34,6 +35,8 @@ const Info = ({navigation}) => {
             </Text>
             <Text style={styles.khmerText}>
               ប៉ុន្តែទីងមោងត្រូវបានរចនាឡើងជាហ្គេមដែលអ្នកនឹងទទួលបានពិន្ទុ
+            </Text>
+            <Text style={styles.khmerText}>
               ដើម្បីបង្កើនកម្រិតនៃការការពារ ទីងមោង របស់អ្នក។
             </Text>
             <Text style={styles.khmerText}>
@@ -63,20 +66,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
-
   textContainer: {
-    margin: 40,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    alignSelf: 'center',
+    marginTop: 40,
+    marginLeft: 20,
+    marginRight: 20,
+    textAlign: 'left',
   },
   khmerText: {
     color: '#fff',
     fontSize: 18,
+    margin: 6,
   },
   submitButton: {
-    marginTop: 50,
-    marginBottom: 20,
+    marginTop: 30,
+    marginLeft: 20,
     backgroundColor: '#0066A2',
     borderColor: '#0066A2',
     height: 50,

@@ -1,16 +1,6 @@
 import * as React from 'react';
 
-import {
-  Alert,
-  Button,
-  Icon,
-  Platform,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import {faCheckSquare, faUser} from '@fortawesome/free-solid-svg-icons';
 
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
@@ -18,7 +8,6 @@ import HomeScreen from './Home';
 import InfoScreen from './Info';
 import LoginScreen from './Login';
 import {NavigationContainer} from '@react-navigation/native';
-import {NavigationEvents} from 'react-navigation';
 import ProfileScreen from './Profile';
 // import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -29,9 +18,6 @@ library.add(fab, faCheckSquare, faUser);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  icon: {
-    color: 'white',
   },
   iconContainer: {
     flexDirection: 'row',
@@ -56,10 +42,6 @@ const styles = StyleSheet.create({
 const Stack = createStackNavigator();
 
 export default class App extends React.Component {
-  // onComponentDidMount() {
-  //   PushNotificationIOS.presentLocalNotification({alertBody: 'hello'});
-  // }
-
   render() {
     console.log('Stak', Stack.Navigator);
     return (
@@ -128,7 +110,7 @@ export default class App extends React.Component {
                       name: 'Profile',
                     })
                   }>
-                  <FontAwesomeIcon icon={faUser} styles={styles.icon} />
+                  <FontAwesomeIcon icon={faUser} styles={{color: 'white'}} />
                 </TouchableOpacity>
               ),
               headerStyle: {

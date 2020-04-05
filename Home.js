@@ -8,14 +8,10 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
-import {faCheckSquare, faCoffee} from '@fortawesome/free-solid-svg-icons';
 
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import Modal from 'react-native-modal';
 import React from 'react';
 import {SafeAreaView} from 'react-navigation';
-import {fab} from '@fortawesome/free-brands-svg-icons';
-import {library} from '@fortawesome/fontawesome-svg-core';
 
 const styles = StyleSheet.create({
   container: {
@@ -55,7 +51,6 @@ class Home extends React.Component {
   }
 
   closeModal() {
-    console.log('closing modal');
     this.setState({showModal: false, points: this.state.points + 10});
     alert('+ 10 points');
   }
@@ -77,7 +72,6 @@ class Home extends React.Component {
     return (
       <SafeAreaView styles={styles.container}>
         <View>
-          <Text>this is a test</Text>
           <Modal
             isVisible={this.state.showModal}
             onRequestClose={() => {
