@@ -1,6 +1,6 @@
 import {
-  Alert,
   Icon,
+  Image,
   Platform,
   StyleSheet,
   Text,
@@ -17,23 +17,29 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  icon: {
-    paddingLeft: 10,
+  tingMong: {
+    position: 'absolute',
+    top: 180,
+    left: -45,
   },
-  iconContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    width: 120,
+  health: {
+    position: 'absolute',
+    top: 700,
+    left: 0,
   },
-  inputWrapper: {
-    height: 50,
-    width: '80%',
-    borderRadius: 5,
-    borderColor: 'black',
-    borderWidth: 1,
-    backgroundColor: '#FAF9F9',
-    marginBottom: 10,
-    padding: 10,
+  challenges: {
+    position: 'absolute',
+    top: 700,
+    left: 300,
+  },
+  level: {
+    position: 'absolute',
+    top: 700,
+    left: 100,
+  },
+  backgroundImage: {
+    position: 'absolute',
+    left: -100,
   },
 });
 class Home extends React.Component {
@@ -42,90 +48,30 @@ class Home extends React.Component {
     this.state = {showModal: false, temperature: '0', points: 10};
   }
 
-  onChangeText(text) {
-    this.setState({temperature: text});
-  }
-
-  setModalVisible(visible) {
-    this.setState({showModal: visible});
-  }
-
-  closeModal() {
-    this.setState({showModal: false, points: this.state.points + 10});
-    alert('+ 10 points');
-  }
-
-  componentDidMount() {
-    Alert.alert(
-      'Hello!',
-      //body
-      'You have not checked your tempeature today. Would you like to do it? (+10 points)',
-      [
-        {text: 'Yes', onPress: () => this.setModalVisible(true)},
-        {text: 'No', onPress: () => console.log('No Pressed'), style: 'cancel'},
-      ],
-      {cancelable: false},
-    );
-  }
-
   render() {
     return (
       <SafeAreaView styles={styles.container}>
         <View>
-          <Modal
-            isVisible={this.state.showModal}
-            onRequestClose={() => {
-              alert('Modal has been closed.');
-            }}>
-            <View
-              style={{
-                backgroundColor: 'white',
-                borderRadius: 2,
-                borderColor: 'gray',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '10%',
-                fontSize: 12,
-              }}>
-              <Text>Please insert your temperature:</Text>
-              <TextInput
-                style={{
-                  height: 40,
-                  width: 60,
-                  borderColor: 'gray',
-                  borderWidth: 1,
-                }}
-                onChangeText={text => this.onChangeText(text)}
-                value={this.state.temperature}
-              />
-
-              <TouchableHighlight
-                onPress={() => {
-                  this.closeModal();
-                }}>
-                <Text>OK</Text>
-              </TouchableHighlight>
-            </View>
-          </Modal>
-        </View>
-        <View style={styles.inputWrapper}>
-          <Text>Your Score: {this.state.points}</Text>
-          <Text>Share it with Friends! </Text>
-        </View>
-
-        <View style={styles.inputWrapper}>
-          <Text>Last Temperature recorded: {this.state.temperature}</Text>
-        </View>
-
-        <Text>Alerts:</Text>
-        <View style={styles.inputWrapper}>
-          <Text>Check your temperature! </Text>
-        </View>
-        <View style={styles.inputWrapper}>
-          <Text>You have been in contact with 3 infected users </Text>
-        </View>
-        <View style={styles.inputWrapper}>
-          <Text>Wash your hands! </Text>
+          <Image
+            source={require('./images/background.png')}
+            style={styles.backgroundImage}
+          />
+          <Image
+            source={require('./images/ting-mong.png')}
+            style={styles.tingMong}
+          />
+          <Image
+            source={require('./images/button-health.png')}
+            style={styles.health}
+          />
+          <Image
+            source={require('./images/button-challenges.png')}
+            style={styles.challenges}
+          />
+          <Image
+            source={require('./images/button-level.png')}
+            style={styles.level}
+          />
         </View>
       </SafeAreaView>
     );
