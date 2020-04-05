@@ -53,7 +53,7 @@ export default class App extends React.Component {
             options={{
               title: 'ទីងមោង',
               headerStyle: {
-                backgroundColor: '#203878',
+                backgroundColor: '#e85143',
                 shadowColor: 'transparent',
               },
               headerTintColor: '#fff',
@@ -69,7 +69,7 @@ export default class App extends React.Component {
             options={{
               title: 'តើទីងមោងជាអ្វី?',
               headerStyle: {
-                backgroundColor: '#203878',
+                backgroundColor: '#e85143',
                 shadowColor: 'transparent',
               },
               headerTintColor: '#fff',
@@ -83,9 +83,9 @@ export default class App extends React.Component {
             name="Profile"
             component={ProfileScreen}
             options={{
-              title: 'Your Profile',
+              title: 'ប្រវត្តិរូប',
               headerStyle: {
-                backgroundColor: '#203878',
+                backgroundColor: '#e85143',
                 shadowColor: 'transparent',
               },
               headerTintColor: '#fff',
@@ -114,7 +114,7 @@ export default class App extends React.Component {
                 </TouchableOpacity>
               ),
               headerStyle: {
-                backgroundColor: '#203878',
+                backgroundColor: '#e85143',
                 shadowColor: 'transparent',
               },
               headerTintColor: '#fff',

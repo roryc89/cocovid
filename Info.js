@@ -1,6 +1,5 @@
 import {
   Button,
-  CheckBox,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -61,7 +60,7 @@ const Info = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#203878',
+    backgroundColor: '#e85143',
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',

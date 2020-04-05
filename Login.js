@@ -53,7 +53,7 @@ const Login = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#203878',
+    backgroundColor: '#e85143',
     justifyContent: 'center',
     alignItems: 'center',
   },

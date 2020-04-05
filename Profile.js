@@ -61,11 +61,13 @@ class Profile extends React.Component {
               </View>
             )}
             <View style={styles.ageContainer}>
-              <Text style={styles.ageTitle}>Age: </Text>
+              <Text style={styles.ageTitle}>អាយុ: </Text>
               <View>
                 <RadioForm
                   selectedLabelColor={'white'}
                   labelColor={'white'}
+                  buttonColor={'white'}
+                  selectedButtonColor={'white'}
                   radio_props={radio_props}
                   initial={0}
                   onPress={value => {
@@ -75,7 +77,7 @@ class Profile extends React.Component {
               </View>
             </View>
             <View style={styles.genderContainer}>
-              <Text style={styles.genderText}>Gender:</Text>
+              <Text style={styles.genderText}>ភេទ:</Text>
               <View style={styles.genderButtons}>
                 <TouchableOpacity
                   onPress={() => this.setGender('male')}
@@ -92,7 +94,7 @@ class Profile extends React.Component {
                   }}>
                   <FontAwesomeIcon
                     icon={faMale}
-                    style={{color: 'blue', padding: 30}}
+                    style={{color: '#e85143', padding: 30}}
                   />
                 </TouchableOpacity>
 
@@ -113,7 +115,7 @@ class Profile extends React.Component {
                   <FontAwesomeIcon
                     icon={faFemale}
                     style={{
-                      color: 'blue',
+                      color: '#e85143',
                       padding: 30,
                     }}
                   />
@@ -121,7 +123,7 @@ class Profile extends React.Component {
               </View>
             </View>
             <View style={styles.map}>
-              <Text style={styles.mapTitle}>Address:</Text>
+              <Text style={styles.mapTitle}>អាសយដ្ឋាន:</Text>
               <Image
                 style={styles.mapImage}
                 source={require('./images/map.png')}
@@ -144,7 +146,7 @@ class Profile extends React.Component {
 export default Profile;
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#203878',
+    backgroundColor: '#e85143',
     alignItems: 'center',
   },
 
@@ -161,7 +163,8 @@ const styles = StyleSheet.create({
   },
   genderText: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 26,
+    fontWeight: 'bold',
   },
   icon: {
     width: 80,
@@ -173,24 +176,28 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
 
-    margin: 20,
+    margin: 10,
   },
   ageTitle: {
     color: 'white',
-    margin: 10,
-    fontSize: 20,
+    margin: 8,
+    fontSize: 26,
+    fontWeight: 'bold',
   },
 
   mapTitle: {
     color: 'white',
-    margin: 10,
-    fontSize: 20,
+    margin: 8,
+    fontSize: 26,
+    fontWeight: 'bold',
   },
   mapImage: {
     width: 300,
     height: 200,
   },
   button: {
-    marginTop: 20,
+    marginTop: 10,
+    color: 'black',
+    backgroundColor: 'white',
   },
 });
