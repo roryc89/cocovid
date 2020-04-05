@@ -125,7 +125,7 @@ class Notifications extends React.Component {
           <Text>You have been in contact with 3 infected users </Text>
         </View>
         <View style={styles.inputWrapper}>
-          <Text>Wash your hands! </Text>
+          <Text>Wash your hands!</Text>
         </View>
       </SafeAreaView>
     );

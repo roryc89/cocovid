@@ -6,11 +6,12 @@ import {
   Text,
   TextInput,
   TouchableHighlight,
+  TouchableOpacity,
   View,
 } from 'react-native';
+import React, {useState} from 'react';
 
 import Modal from 'react-native-modal';
-import React from 'react';
 import {SafeAreaView} from 'react-navigation';
 
 const styles = StyleSheet.create({
@@ -41,40 +42,52 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: -100,
   },
+  washYourHands: {
+    position: 'absolute',
+    left: -50,
+    top: -25,
+  },
 });
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {showModal: false, temperature: '0', points: 10};
-  }
+const Home = () => {
+  const [step, setStep] = useState(2);
+  console.log('step', step);
 
-  render() {
-    return (
-      <SafeAreaView styles={styles.container}>
-        <View>
+  setTimeout(() => setStep(step === 1 ? 2 : 1), 10000);
+
+  return (
+    <SafeAreaView styles={styles.container}>
+      <View>
+        {step === 1 ? (
+          <>
+            <Image
+              source={require('./images/background.png')}
+              style={styles.backgroundImage}
+            />
+            <Image
+              source={require('./images/ting-mong.png')}
+              style={styles.tingMong}
+            />
+            <Image
+              source={require('./images/button-health.png')}
+              style={styles.health}
+            />
+            <Image
+              source={require('./images/button-challenges.png')}
+              style={styles.challenges}
+            />
+            <Image
+              source={require('./images/button-level.png')}
+              style={styles.level}
+            />
+          </>
+        ) : (
           <Image
-            source={require('./images/background.png')}
-            style={styles.backgroundImage}
+            source={require('./images/wash-your-hands.png')}
+            style={styles.washYourHands}
           />
-          <Image
-            source={require('./images/ting-mong.png')}
-            style={styles.tingMong}
-          />
-          <Image
-            source={require('./images/button-health.png')}
-            style={styles.health}
-          />
-          <Image
-            source={require('./images/button-challenges.png')}
-            style={styles.challenges}
-          />
-          <Image
-            source={require('./images/button-level.png')}
-            style={styles.level}
-          />
-        </View>
-      </SafeAreaView>
-    );
-  }
-}
+        )}
+      </View>
+    </SafeAreaView>
+  );
+};
 export default Home;
