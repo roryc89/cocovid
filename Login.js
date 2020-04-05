@@ -56,12 +56,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#203878',
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundImage: url('images/radial_bg.png')
-    // backgroundRepeat: 'no-repeat',
-    /* Safari 4-5, Chrome 1-9 */
-    /* Can't specify a percentage size? Laaaaaame. */
-    // background:
-    //   '-webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727))',
   },
   image: {margin: 50},
   engine: {

@@ -1,19 +1,34 @@
 import {
   Alert,
+  Icon,
+  Platform,
   StyleSheet,
   Text,
   TextInput,
   TouchableHighlight,
   View,
 } from 'react-native';
+import {faCheckSquare, faCoffee} from '@fortawesome/free-solid-svg-icons';
 
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import Modal from 'react-native-modal';
 import React from 'react';
-
-// prompt temperature -> yes or not, register your temperature
-// alert someone symptoms
+import {SafeAreaView} from 'react-navigation';
+import {fab} from '@fortawesome/free-brands-svg-icons';
+import {library} from '@fortawesome/fontawesome-svg-core';
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  icon: {
+    paddingLeft: 10,
+  },
+  iconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    width: 120,
+  },
   inputWrapper: {
     height: 50,
     width: '80%',
@@ -25,7 +40,6 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
-
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -61,8 +75,9 @@ class Home extends React.Component {
 
   render() {
     return (
-      <View>
+      <SafeAreaView styles={styles.container}>
         <View>
+          <Text>this is a test</Text>
           <Modal
             isVisible={this.state.showModal}
             onRequestClose={() => {
@@ -118,9 +133,8 @@ class Home extends React.Component {
         <View style={styles.inputWrapper}>
           <Text>Wash your hands! </Text>
         </View>
-      </View>
+      </SafeAreaView>
     );
   }
 }
-
 export default Home;
